@@ -106,7 +106,7 @@ public final class BuiltInWallpaperAsset extends Asset {
             final WallpaperManager wallpaperManager = WallpaperManager.getInstance(mContext);
 
             Drawable drawable = (targetWidth <= 0 || targetHeight <= 0)
-                    ? wallpaperManager.getBuiltInDrawable()
+                    ? wallpaperManager.getBuiltInDrawable(0,0,false,0.5,0,FLAG_SYSTEM)
                     : wallpaperManager.getBuiltInDrawable(
                         targetWidth,
                         targetHeight,
@@ -144,7 +144,7 @@ public final class BuiltInWallpaperAsset extends Asset {
             return mDimensions;
         }
 
-        Drawable builtInDrawable = WallpaperManager.getInstance(mContext).getBuiltInDrawable();
+        Drawable builtInDrawable = WallpaperManager.getInstance(mContext).getBuiltInDrawable(0, 0, false, 0.5, 0, FLAG_SYSTEM);
         Bitmap builtInBitmap = ((BitmapDrawable) builtInDrawable).getBitmap();
         mDimensions = new Point(builtInBitmap.getWidth(), builtInBitmap.getHeight());
         return mDimensions;
